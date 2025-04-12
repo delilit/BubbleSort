@@ -1,0 +1,14 @@
+E:\Learn\bubble\bin\Debug\net9.0\bubble.exe
+E:\Learn\bubble\bin\Debug\net9.0\bubble.deps.json
+E:\Learn\bubble\bin\Debug\net9.0\bubble.runtimeconfig.json
+E:\Learn\bubble\bin\Debug\net9.0\bubble.dll
+E:\Learn\bubble\bin\Debug\net9.0\bubble.pdb
+E:\Learn\bubble\obj\Debug\net9.0\bubble.GeneratedMSBuildEditorConfig.editorconfig
+E:\Learn\bubble\obj\Debug\net9.0\bubble.AssemblyInfoInputs.cache
+E:\Learn\bubble\obj\Debug\net9.0\bubble.AssemblyInfo.cs
+E:\Learn\bubble\obj\Debug\net9.0\bubble.csproj.CoreCompileInputs.cache
+E:\Learn\bubble\obj\Debug\net9.0\bubble.dll
+E:\Learn\bubble\obj\Debug\net9.0\refint\bubble.dll
+E:\Learn\bubble\obj\Debug\net9.0\bubble.pdb
+E:\Learn\bubble\obj\Debug\net9.0\bubble.genruntimeconfig.cache
+E:\Learn\bubble\obj\Debug\net9.0\ref\bubble.dll
