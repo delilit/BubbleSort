@@ -5,15 +5,8 @@ using Лаб2_Сортировка_строк;
 
 namespace SortingAlgorithms
 {
-    /// <summary>
-    /// Represents a sorting algorithm implementation
-    /// </summary>
     public class BubbleSort
     {
-        /// <summary>
-        /// Sorts an array using bubble sort algorithm
-        /// </summary>
-        /// <param name="array">Array to sort</param>
         public static int[] Sort(int[] array)
         {
             var IfCount = 0;
@@ -38,44 +31,26 @@ namespace SortingAlgorithms
         }
     }
 
-    /// <summary>
-    /// Represents array generation strategies
-    /// </summary>
     public class ArrayGenerator
     {
         private readonly Random _random = new Random();
 
-        /// <summary>
-        /// Generates an array based on arithmetic progression parameters
-        /// </summary>
-        public int[] GenerateArithmeticArray(int length, int minElement, int maxElement, int repeat)
+        public int[] GetOperationsCount(int length, int minElement, int maxElement, int repeat, int maxLength)
         {
-            int[] array = new int[length];
-            for (int i = 0; i < length; i++)
-            {
-                array[i] = _random.Next(minElement, maxElement + 1);
-            }
-            return (BubbleSort.Sort(array));
-        }
-
-        /// <summary>
-        /// Generates an array based on geometric progression parameters
-        /// </summary>
-        public int[] GenerateGeometricArray(int length, int minElement, int maxElement, int znamen, int repeat)
-        {
+            int[] result = [2];
             int[] array = new int[length];
             for (int j = 0; j < repeat; j++)
             {
-                int current = minElement;
-                for (int i = 0; i < length && current <= maxElement; i++)
+                for (int i = 0; i < length; i++)
                 {
-                    array[i] = current;
-                    current *= znamen;
+                    array[i] = _random.Next(minElement, maxElement + 1);
                 }
+            result[0] += BubbleSort.Sort(array)[0];
+            result[1] += BubbleSort.Sort(array)[0];
             }
-            return (BubbleSort.Sort(array));
+
+            return (result);
         }
-    }
 
     public class Program
     {
@@ -96,20 +71,20 @@ namespace SortingAlgorithms
 
                     Console.WriteLine($"\nProcessing {name} with length {startLength}:");
 
-                    int[] array;
+                    int[] result;
                     if (name.Contains("Arithmetic"))
-                    {
-                        array = generator.GenerateArithmeticArray(startLength, minElement, maxElement);
-                    }
-                    else // Geometric
-                    {
-                        int znamen = int.Parse(node.Attribute("Znamen")?.Value ?? "2");
-                        array = generator.GenerateGeometricArray(startLength, minElement, maxElement, znamen, repeat);
-                    }
+                    // {
+                    //     result = generator.GetOperationsCount(startLength, minElement, maxElement, repeat);
+                    // }
+                    // else
+                    // {
+                    //     int znamen = int.Parse(node.Attribute("Znamen")?.Value ?? "2");
+                    //     result = generator.GenerateGeometricArray(startLength, minElement, maxElement, znamen, repeat);
+                    // }
 
-                    Console.WriteLine($"Initial array: {string.Join(" ", array)}");
+                    //Console.WriteLine($"Initial array: {string.Join(" ", array)}");
 
-                    Console.WriteLine($"Sorted array:  {string.Join(" ", array)}");
+                    //Console.WriteLine($"Sorted array:  {string.Join(" ", array)}");
                 }
             }
             catch (Exception ex)
@@ -118,4 +93,5 @@ namespace SortingAlgorithms
             }
         }
     }
+}
 }
