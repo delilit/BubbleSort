@@ -1,0 +1,15 @@
+D:\Learn\Алгосы\LR1\bin\Debug\net8.0\LR1.exe
+D:\Learn\Алгосы\LR1\bin\Debug\net8.0\LR1.deps.json
+D:\Learn\Алгосы\LR1\bin\Debug\net8.0\LR1.runtimeconfig.json
+D:\Learn\Алгосы\LR1\bin\Debug\net8.0\LR1.dll
+D:\Learn\Алгосы\LR1\bin\Debug\net8.0\LR1.pdb
+D:\Learn\Алгосы\LR1\obj\Debug\net8.0\LR1.GeneratedMSBuildEditorConfig.editorconfig
+D:\Learn\Алгосы\LR1\obj\Debug\net8.0\LR1.AssemblyInfoInputs.cache
+D:\Learn\Алгосы\LR1\obj\Debug\net8.0\LR1.AssemblyInfo.cs
+D:\Learn\Алгосы\LR1\obj\Debug\net8.0\LR1.csproj.CoreCompileInputs.cache
+D:\Learn\Алгосы\LR1\obj\Debug\net8.0\LR1.dll
+D:\Learn\Алгосы\LR1\obj\Debug\net8.0\refint\LR1.dll
+D:\Learn\Алгосы\LR1\obj\Debug\net8.0\LR1.pdb
+D:\Learn\Алгосы\LR1\obj\Debug\net8.0\LR1.genruntimeconfig.cache
+D:\Learn\Алгосы\LR1\obj\Debug\net8.0\ref\LR1.dll
+D:\Learn\Алгосы\LR1\bin\Debug\net8.0\main.xml
