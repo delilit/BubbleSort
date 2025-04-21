@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <experiments>
-<experiment name= "HeapTree">
+<experiment name= "BubbleSort">
 <nodes name = "Arithmetic Progression" minElement = "0" maxElement = "300"
 startLength="1000" diff = "100" maxLength = "3000" repeat = "15">
 </nodes>

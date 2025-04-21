@@ -57,7 +57,7 @@ namespace SortingAlgorithms
 
     public class Program
     {
-        static void Main()
+        static void Experiments()
         {
             try
             {
@@ -104,6 +104,117 @@ namespace SortingAlgorithms
                 Console.WriteLine($"An error occurred: {ex.Message}");
             }
         }
+        static void Main()
+        {
+            if (testing() == false){
+                return;
+            }
+                        Console.Write("Выполнить эксперимент перед началом программы (yes/no)? ");
+            var answer = Console.ReadLine();
+            if (answer == "yes")
+                Experiments();
+            
+            while (true){
+            Console.Write("Введите строки для сортировки, разделяя их пробелом или 'Enter' для завершения: ");
+
+            var line = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(line))
+                return;
+
+            var input = line.Split();
+            if (input.SequenceEqual(new string[] {""})){
+                return;
+            }
+            var array = new int[input.Length];
+            for (int i = 0; i < input.Length; i++){
+                array[i] = Int32.Parse(input[i]);
+            }
+            BubbleSort.Sort(array);
+            Console.Write("Отсортированный массив: ");
+            foreach (var item in array) Console.Write(item + " ");
+            Console.Write("\n\n");
+            }
+        }
+    }
+
+
+    static bool testing(){
+
+        //Test 1
+
+        bool is_passed = true;
+        var array = new int[] { 5, 4, 3, 2, 1 };
+        var true_array = new int[] {1, 2, 3, 4, 5};
+        BubbleSort.Sort(array);
+        
+        if (!array.SequenceEqual(true_array)){
+            Console.WriteLine($"Test 1 isn't passed.");
+            Console.WriteLine("Actual:");
+            foreach (var item in array) Console.Write(item + " ");
+            Console.Write("\n\n");
+
+            Console.WriteLine("Expected:");
+            foreach (var item in true_array) Console.Write(item + " ");
+            Console.Write("\n\n");
+
+            is_passed = false;
+        }
+
+        //Test 2
+        array = new int[]{1, 2, 3, 4, 5};
+        true_array = new int[] {1, 2, 3, 4, 5};
+        BubbleSort.Sort(array);
+        
+        if (!array.SequenceEqual(true_array)){
+            Console.WriteLine($"Test 2 isn't passed.");
+            Console.WriteLine("Actual:");
+            foreach (var item in array) Console.Write(item + " ");
+            Console.Write("\n\n");
+
+            Console.WriteLine("Expected:");
+            foreach (var item in true_array) Console.Write(item + " ");
+            Console.Write("\n\n");
+
+            is_passed = false;
+        }
+
+        //Test 3
+        array = new int[]{};
+        true_array = new int[] {};
+        BubbleSort.Sort(array);
+        
+        if (!array.SequenceEqual(true_array)){
+            Console.WriteLine($"Test 3 isn't passed.");
+            Console.WriteLine("Actual:");
+            foreach (var item in array) Console.Write(item + " ");
+            Console.Write("\n\n");
+
+            Console.WriteLine("Expected:");
+            foreach (var item in true_array) Console.Write(item + " ");
+            Console.Write("\n\n");
+
+            is_passed = false;
+        }      
+
+        //Test 4
+
+        array = new int[]{99999999,9999999,1,0,-100};
+        true_array = new int[] {-100, 0, 1, 9999999, 99999999};
+        BubbleSort.Sort(array);
+        
+        if (!array.SequenceEqual(true_array)){
+            Console.WriteLine($"Test 3 isn't passed.");
+            Console.WriteLine("Actual:");
+            foreach (var item in array) Console.Write(item + " ");
+            Console.Write("\n\n");
+
+            Console.WriteLine("Expected:");
+            foreach (var item in true_array) Console.Write(item + " ");
+            Console.Write("\n\n");
+
+            is_passed = false;
+        }      
+        return is_passed;
     }
 }
 }

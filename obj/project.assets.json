@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Learn\\Алгосы\\LR1\\LR1.csproj",
+      "projectUniqueName": "D:\\Learn\\Алгосы\\BubbleSort\\LR1.csproj",
       "projectName": "LR1",
-      "projectPath": "D:\\Learn\\Алгосы\\LR1\\LR1.csproj",
+      "projectPath": "D:\\Learn\\Алгосы\\BubbleSort\\LR1.csproj",
       "packagesPath": "C:\\Users\\Aleksey\\.nuget\\packages\\",
-      "outputPath": "D:\\Learn\\Алгосы\\LR1\\obj\\",
+      "outputPath": "D:\\Learn\\Алгосы\\BubbleSort\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "E:\\Tools\\shared\\NuGetPackages"
