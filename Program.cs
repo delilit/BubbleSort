@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Xml;
 using System.Xml.Linq;
-using Лаб2_Сортировка_строк;
+//using Лаб2_Сортировка_строк;
 
 namespace SortingAlgorithms
 {
@@ -35,9 +35,9 @@ namespace SortingAlgorithms
     {
         private readonly Random _random = new Random();
 
-        public int[] GetOperationsCount(int length, int minElement, int maxElement, int repeat, int maxLength)
+        public int[] GetOperationsCount(int length, int minElement, int maxElement, int repeat)
         {
-            int[] result = [2];
+            int[] result = new int[2];
             int[] array = new int[length];
             for (int j = 0; j < repeat; j++)
             {
@@ -45,9 +45,12 @@ namespace SortingAlgorithms
                 {
                     array[i] = _random.Next(minElement, maxElement + 1);
                 }
-            result[0] += BubbleSort.Sort(array)[0];
-            result[1] += BubbleSort.Sort(array)[0];
+            int[] sortResult = BubbleSort.Sort(array);
+            result[0] += sortResult[0];
+            result[1] += sortResult[1];
             }
+            result[0] /= repeat;
+            result[1] /= repeat;
 
             return (result);
         }
@@ -65,26 +68,35 @@ namespace SortingAlgorithms
                 {
                     string name = node.Attribute("name")?.Value ?? string.Empty;
                     int startLength = int.Parse(node.Attribute("startLength")?.Value ?? "0");
+                    int maxLength = int.Parse(node.Attribute("maxLength")?.Value ?? "0");
                     int minElement = int.Parse(node.Attribute("minElement")?.Value ?? "0");
                     int maxElement = int.Parse(node.Attribute("maxElement")?.Value ?? "0");
                     int repeat = int.Parse(node.Attribute("repeat")?.Value ?? "1");
 
-                    Console.WriteLine($"\nProcessing {name} with length {startLength}:");
+                    //Console.WriteLine($"\nProcessing {name} with length {startLength}:");
 
                     int[] result;
                     if (name.Contains("Arithmetic"))
-                    // {
-                    //     result = generator.GetOperationsCount(startLength, minElement, maxElement, repeat);
-                    // }
-                    // else
-                    // {
-                    //     int znamen = int.Parse(node.Attribute("Znamen")?.Value ?? "2");
-                    //     result = generator.GenerateGeometricArray(startLength, minElement, maxElement, znamen, repeat);
-                    // }
-
-                    //Console.WriteLine($"Initial array: {string.Join(" ", array)}");
-
-                    //Console.WriteLine($"Sorted array:  {string.Join(" ", array)}");
+                    {
+                        Console.WriteLine("Arithmetic progression:");
+                        int diff = int.Parse(node.Attribute("diff")?.Value ?? "0");
+                        for( var length = startLength; length <= maxLength; length+= diff)
+                        {
+                            result = generator.GetOperationsCount(startLength, minElement, maxElement, repeat);
+                            Console.WriteLine($"Длина массива: {length}\tКол-во массивов: {repeat}\tОператоров 'if' в среднем: {result[0]}\tСвапов в среднем:{result[1]}");
+                        }
+                        Console.WriteLine("\n");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Geometrical progression:");
+                        int znamen = int.Parse(node.Attribute("Znamen")?.Value ?? "2");
+                        for( var length = startLength; length <= maxLength; length*= znamen)
+                        {
+                            result = generator.GetOperationsCount(startLength, minElement, maxElement, repeat);
+                            Console.WriteLine($"Длина массива: {length}\tКол-во массивов: {repeat}\tОператоров 'if' в среднем: {result[0]}\tСвапов в среднем:{result[1]}");
+                        }
+                    }
                 }
             }
             catch (Exception ex)
