@@ -72,9 +72,6 @@ namespace SortingAlgorithms
                     int minElement = int.Parse(node.Attribute("minElement")?.Value ?? "0");
                     int maxElement = int.Parse(node.Attribute("maxElement")?.Value ?? "0");
                     int repeat = int.Parse(node.Attribute("repeat")?.Value ?? "1");
-
-                    //Console.WriteLine($"\nProcessing {name} with length {startLength}:");
-
                     int[] result;
                     if (name.Contains("Arithmetic"))
                     {
@@ -214,6 +211,19 @@ namespace SortingAlgorithms
 
             is_passed = false;
         }      
+
+        //Test 5
+
+        array = new int[]{99999999,9999999,1,0,-100};
+        int[] sorted_count = BubbleSort.Sort(array);
+        
+        if (sorted_count[0] != 10 || sorted_count[1] != 10){
+            Console.WriteLine($"Test 3 isn't passed.");
+            Console.WriteLine($"Actual: {sorted_count[0]}, {sorted_count[1]}");
+
+            Console.WriteLine("Expected: 10");
+            is_passed = false;
+        }   
         return is_passed;
     }
 }
