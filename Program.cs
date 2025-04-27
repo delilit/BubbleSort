@@ -79,7 +79,7 @@ namespace SortingAlgorithms
                         int diff = int.Parse(node.Attribute("diff")?.Value ?? "0");
                         for( var length = startLength; length <= maxLength; length+= diff)
                         {
-                            result = generator.GetOperationsCount(startLength, minElement, maxElement, repeat);
+                            result = generator.GetOperationsCount(length, minElement, maxElement, repeat);
                             Console.WriteLine($"Длина массива: {length}\tКол-во массивов: {repeat}\tОператоров 'if' в среднем: {result[0]}\tСвапов в среднем:{result[1]}");
                         }
                         Console.WriteLine("\n");
@@ -90,7 +90,7 @@ namespace SortingAlgorithms
                         int znamen = int.Parse(node.Attribute("Znamen")?.Value ?? "2");
                         for( var length = startLength; length <= maxLength; length*= znamen)
                         {
-                            result = generator.GetOperationsCount(startLength, minElement, maxElement, repeat);
+                            result = generator.GetOperationsCount(length, minElement, maxElement, repeat);
                             Console.WriteLine($"Длина массива: {length}\tКол-во массивов: {repeat}\tОператоров 'if' в среднем: {result[0]}\tСвапов в среднем:{result[1]}");
                         }
                     }
@@ -214,7 +214,7 @@ namespace SortingAlgorithms
 
         //Test 5
 
-        array = new int[]{99999999,9999999,1,0,-100};
+        array = new int[]{99999999,9999999, 1,0,-100};
         int[] sorted_count = BubbleSort.Sort(array);
         
         if (sorted_count[0] != 10 || sorted_count[1] != 10){
