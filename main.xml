@@ -2,19 +2,19 @@
 <experiments>
 <experiment name= "BubbleSort">
 <nodes name = "Arithmetic Progression" minElement = "0" maxElement = "300"
-startLength="1000" diff = "50" maxLength = "1000" repeat = "15">
+startLength="1000" diff = "50" maxLength = "1300" repeat = "5">
 </nodes>
 <nodes name = "Arithmetic Progression" minElement = "0" maxElement = "1000"
-startLength="2000" diff = "100" maxLength = "2500" repeat = "15">
+startLength="2000" diff = "100" maxLength = "2300" repeat = "5">
 </nodes>
 <nodes name = "Arithmetic Progression" minElement = "0" maxElement = "10000"
-startLength="1000" diff = "100" maxLength = "5000" repeat = "15">
+startLength="1000" diff = "100" maxLength = "2000" repeat = "5">
 </nodes>
 <nodes name = "Geometric Progression" minElement = "0" maxElement = "20"
-startLength="10" Znamen = "2" maxLength = "10000" repeat = "15">
+startLength="10" Znamen = "2" maxLength = "10000" repeat = "5">
 </nodes>
 <nodes name = "Geometric Progression" minElement = "0" maxElement = "1000"
-startLength="10" Znamen = "5" maxLength = "10000" repeat = "15">
+startLength="10" Znamen = "5" maxLength = "10000" repeat = "5">
 </nodes>
 </experiment>
 </experiments>

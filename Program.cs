@@ -35,24 +35,16 @@ namespace SortingAlgorithms
     {
         private readonly Random _random = new Random();
 
-        public int[] GetOperationsCount(int length, int minElement, int maxElement, int repeat)
+        public int[] GetOperationsCount(int length, int minElement, int maxElement)
         {
             int[] result = new int[2];
             int[] array = new int[length];
-            for (int j = 0; j < repeat; j++)
-            {
                 for (int i = 0; i < length; i++)
                 {
                     array[i] = _random.Next(minElement, maxElement + 1);
                 }
             int[] sortResult = BubbleSort.Sort(array);
-            result[0] += sortResult[0];
-            result[1] += sortResult[1];
-            }
-            result[0] /= repeat;
-            result[1] /= repeat;
-
-            return (result);
+            return (sortResult);
         }
 
     public class Program
@@ -79,8 +71,10 @@ namespace SortingAlgorithms
                         int diff = int.Parse(node.Attribute("diff")?.Value ?? "0");
                         for( var length = startLength; length <= maxLength; length+= diff)
                         {
-                            result = generator.GetOperationsCount(length, minElement, maxElement, repeat);
-                            Console.WriteLine($"Длина массива: {length}\tКол-во массивов: {repeat}\tОператоров 'if' в среднем: {result[0]}\tСвапов в среднем:{result[1]}");
+                            for (int i = 1; i<repeat; i++){
+                            result = generator.GetOperationsCount(length, minElement, maxElement);
+                            Console.WriteLine($"Длина массива: {length,6}  Операторов 'if': {result[0],8}  Свапов: {result[1],8}");
+                        }
                         }
                         Console.WriteLine("\n");
                     }
@@ -90,8 +84,10 @@ namespace SortingAlgorithms
                         int znamen = int.Parse(node.Attribute("Znamen")?.Value ?? "2");
                         for( var length = startLength; length <= maxLength; length*= znamen)
                         {
-                            result = generator.GetOperationsCount(length, minElement, maxElement, repeat);
-                            Console.WriteLine($"Длина массива: {length}\tКол-во массивов: {repeat}\tОператоров 'if' в среднем: {result[0]}\tСвапов в среднем:{result[1]}");
+                            for (int i = 1; i<repeat; i++){
+                            result = generator.GetOperationsCount(length, minElement, maxElement);
+                            Console.WriteLine($"Длина массива: {length,6}  Операторов 'if': {result[0],8}  Свапов: {result[1],8}");
+                        }
                         }
                     }
                 }
