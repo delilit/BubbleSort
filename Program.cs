@@ -73,7 +73,7 @@ namespace SortingAlgorithms
                         {
                             for (int i = 1; i<repeat; i++){
                             result = generator.GetOperationsCount(length, minElement, maxElement);
-                            Console.WriteLine($"Длина массива: {length,6}  Операторов 'if': {result[0],8}  Свапов: {result[1],8}");
+                            Console.WriteLine($"{length,6}, {result[1],8}");
                         }
                         }
                         Console.WriteLine("\n");
@@ -86,7 +86,7 @@ namespace SortingAlgorithms
                         {
                             for (int i = 1; i<repeat; i++){
                             result = generator.GetOperationsCount(length, minElement, maxElement);
-                            Console.WriteLine($"Длина массива: {length,6}  Операторов 'if': {result[0],8}  Свапов: {result[1],8}");
+                            Console.WriteLine($"{length,6}, {result[1],8}");
                         }
                         }
                     }
@@ -220,7 +220,74 @@ namespace SortingAlgorithms
             Console.WriteLine("Expected: 10");
             is_passed = false;
         }   
-        return is_passed;
+        // Test 6: Все элементы одинаковые
+    array = new int[]{7, 7, 7, 7, 7};
+    true_array = new int[]{7, 7, 7, 7, 7};
+    BubbleSort.Sort(array);
+
+    if (!array.SequenceEqual(true_array)){
+        Console.WriteLine("Test 6 isn't passed.");
+        is_passed = false;
     }
+
+    // Test 7: Один элемент
+    array = new int[]{42};
+    true_array = new int[]{42};
+    BubbleSort.Sort(array);
+
+    if (!array.SequenceEqual(true_array)){
+        Console.WriteLine("Test 7 isn't passed.");
+        is_passed = false;
+    }
+
+    // Test 8: Два элемента, не отсортированы
+    array = new int[]{2, 1};
+    true_array = new int[]{1, 2};
+    BubbleSort.Sort(array);
+
+    if (!array.SequenceEqual(true_array)){
+        Console.WriteLine("Test 8 isn't passed.");
+        is_passed = false;
+    }
+
+    // Test 9: Отрицательные числа
+    array = new int[]{-3, -1, -7, -5};
+    true_array = new int[]{-7, -5, -3, -1};
+    BubbleSort.Sort(array);
+
+    if (!array.SequenceEqual(true_array)){
+        Console.WriteLine("Test 9 isn't passed.");
+        is_passed = false;
+    }
+
+    // Test 10: Большой массив на корректность длины и сортировки
+    array = Enumerable.Range(1, 1000).Reverse().ToArray();
+    true_array = Enumerable.Range(1, 1000).ToArray();
+    BubbleSort.Sort(array);
+
+    if (!array.SequenceEqual(true_array)){
+        Console.WriteLine("Test 10 isn't passed.");
+        is_passed = false;
+    }
+
+    // Test 11: Проверка GetOperationsCount на возврат 2 элементов
+    var generator = new ArrayGenerator();
+    int[] operations = generator.GetOperationsCount(10, 1, 100);
+    if (operations.Length != 2)
+    {
+        Console.WriteLine("Test 11 isn't passed (GetOperationsCount should return array of length 2).");
+        is_passed = false;
+    }
+
+    // Test 12: Проверка, что количество сравнений и обменов >= 0
+    if (operations[0] < 0 || operations[1] < 0)
+    {
+        Console.WriteLine("Test 12 isn't passed (negative operation counts).");
+        is_passed = false;
+    }
+        return is_passed;
+
+    }
+    
 }
 }
